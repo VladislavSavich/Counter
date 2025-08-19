@@ -9,6 +9,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] float _delay = 0.5f;
 
+    private Coroutine _coroutine;
     private int _counter;
     private bool _isActive = false;
 
@@ -50,9 +51,17 @@ public class Counter : MonoBehaviour
     private void OnButtonClicked()
     {
         if (_isActive)
-            StopAllCoroutines();
-        else 
-            StartCoroutine(IncreaseCount(_delay));
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+        }
+        else
+        {
+            _coroutine = StartCoroutine(IncreaseCount(_delay));
+        }
 
         SwitchState();
     }

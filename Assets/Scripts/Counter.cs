@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] float _delay = 0.5f;
+    [SerializeField] private float _delay = 0.5f;
 
     private Coroutine _coroutine;
     public event Action<int> Changed;
     private int _counter;
-    private bool _isActive = true;
+    private bool _isActive = false;
 
     private void Start()
     {
@@ -58,5 +58,7 @@ public class Counter : MonoBehaviour
         {
             _coroutine = StartCoroutine(IncreaseCount(_delay));
         }
+
+        SwitchState();
     }
 }

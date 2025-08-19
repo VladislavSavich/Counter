@@ -14,7 +14,7 @@ public class Counter : MonoBehaviour
     private int _counter;
     private bool _isActive = true;
 
-    void Start()
+    private void Start()
     {
         _counter = 0;
     }

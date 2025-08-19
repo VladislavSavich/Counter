@@ -23,7 +23,7 @@ public class Counter : MonoBehaviour
     {
         var wait = new WaitForSeconds(delay);
 
-        while (true)
+        while (enabled)
         {
             _counter++;
             Changed?.Invoke(_counter);

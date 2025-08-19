@@ -7,7 +7,7 @@ public class CounterVew : MonoBehaviour
     [SerializeField] private Counter _counter;
     [SerializeField] private TextMeshProUGUI _counterText;
 
-    void Start()
+    private void Start()
     {
         _counterText.text = "0";
     }
